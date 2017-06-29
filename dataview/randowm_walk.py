@@ -14,20 +14,29 @@ class Randomwalk ():
 
     def fill_walk(self):
         """ calculation"""
-        while len (self.y_values) < self.num_points:
-            # 决定前进的方向以及沿着这个方向前进的就前进的就
-            x_direction = choice ([1, -1])
-            x_distance = choice ([0, 1, 2, 3, 4])
-            x_step = x_direction * x_distance
-            y_directoion = choice([1, -1])
-            y_distance = choice([0, 1, 2, 3, 4])
-            y_setp = y_directoion * y_distance
+        x_step = self.get_step()
+        y_step = self.get_step()
 
-            if x_step == 0 and y_setp == 0:
+    def get_step(self):
+        """ calculation"""
+        while len(self.x_values) < self.num_points:
+            # 决定前进的方向以及沿着这个方向前进的就前进的就
+            x_direction = choice([1, -1])
+            x_distance = choice([0, 1, 2, 3, 4])
+            x_step = x_direction * x_distance
+            y_direction = choice([1, -1])
+            y_distance = choice([0, 1, 2, 3, 4])
+            y_step = y_direction * y_distance
+
+            if x_step == 0 and y_step == 0:
                 continue
             # 计算下一个点的x和y值
             next_x = self.x_values[-1] + x_step
-            next_y = self.y_values[-1] + y_setp
+            next_y = self.y_values[-1] + y_step
+            self.x_values.append(next_x)
+            self.y_values.append(next_y)
+        return self.x_values
 
-            self.x_values.append (next_x)
-            self.y_values.append (next_y)
+
+c = Randomwalk()
+c.get_step()

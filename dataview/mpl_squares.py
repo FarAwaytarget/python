@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 input_values = [1, 2, 3, 4, 5]
 squares = [1, 4, 9, 16, 25]
-# 设置折线宽度为5
+
 plt.plot(input_values, squares, linewidth=5)
 # set chart title, and axis add lable
 plt.title('Square NUmbers', fontsize=24)
